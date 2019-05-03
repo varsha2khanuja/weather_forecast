@@ -1,0 +1,11 @@
+<h1 class="text-center primary"> Welcome to weather forecast!</h1>
+
+<div class="container">
+	
+	<div class="info">
+		<h1> City : {{weather.city.name}} </h1>
+		<h2> Weather : {{weather.list["0"].weather["0"].description}} </h2>
+		<h2> Temperature : {{weather.list["0"].main.temp}} </h2>
+		<h2> Wind Strength : {{weather.list["0"].wind.speed}} </h2>
+	</div>
+</div>
