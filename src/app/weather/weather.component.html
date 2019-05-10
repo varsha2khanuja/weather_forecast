@@ -1,11 +1,93 @@
+<div class="profile-image">
+<br>
 <h1 class="text-center primary"> Welcome to weather forecast!</h1>
+<br><br>
 
 <div class="container">
+	<div class="row">
 	
-	<div class="info">
-		<h1> City : {{weather.city.name}} </h1>
-		<h2> Weather : {{weather.list["0"].weather["0"].description}} </h2>
-		<h2> Temperature : {{weather.list["0"].main.temp}} </h2>
-		<h2> Wind Strength : {{weather.list["0"].wind.speed}} </h2>
+	<div class="column" *ngFor="let w of weather" >
+		<table  frame="box" cellpadding="10">
+			<div>
+			<tr>
+				<th> {{w.name}} </th>
+				<td> {{w.main.temp}}°C </td>
+			</tr>
+			<tr>
+				<th> Weather : </th>
+				<td> {{w.weather["0"].description}} </td>
+			</tr>
+			<tr>
+				<th> Wind Speed : </th>
+				<td> {{w.wind.speed}}m/s </td>
+			</tr>
+		</div>
+		</table>		
+		<br>
+	</div>
+	<div>
+	<button class="button" (click)=" isshown()">Click me to get the Forecast of next hours</button>	
+	</div>
+				<div *ngIf="isShown"  id="divshow" >
+					<div *ngFor="let f of forecast">
+						<table cellpadding="10">
+					<div>
+					<tr>
+						<th> {{f.city.name}} </th>
+					</tr></div>
+					<tr>
+						<th> {{f.list["2"].dt_txt}}</th>
+						<td> {{f.list["2"].main.temp}}°C </td>
+						<th> Weather </th>
+						<td> {{f.list["2"].weather["0"].description}} </td>
+						<th> Wind Speed :</th>
+						<td> {{f.list["2"].wind.speed}}m/s </td>
+					</tr>
+					<tr>
+						<th> {{f.list["3"].dt_txt}}</th>
+						<td> {{f.list["3"].main.temp}}°C </td>
+						<th> Weather </th>
+						<td> {{f.list["3"].weather["0"].description}} </td>
+						<th> Wind Speed :</th>
+						<td> {{f.list["3"].wind.speed}}m/s </td>
+					</tr>
+					<tr>
+						<th> {{f.list["4"].dt_txt}}</th>
+						<td> {{f.list["4"].main.temp}}°C </td>
+						<th> Weather </th>
+						<td> {{f.list["4"].weather["0"].description}} </td>
+						<th> Wind Speed :</th>
+						<td> {{f.list["4"].wind.speed}}m/s </td>
+					</tr>
+					<tr>
+						<th> {{f.list["5"].dt_txt}}</th>
+						<td> {{f.list["5"].main.temp}}°C </td>
+						<th> Weather </th>
+						<td> {{f.list["5"].weather["0"].description}} </td>
+						<th> Wind Speed :</th>
+						<td> {{f.list["5"].wind.speed}}m/s </td>
+					</tr>
+					<tr>
+						<th> {{f.list["6"].dt_txt}}</th>
+						<td> {{f.list["6"].main.temp}}°C </td>
+						<th> Weather </th>
+						<td> {{f.list["6"].weather["0"].description}} </td>
+						<th> Wind Speed :</th>
+						<td> {{f.list["6"].wind.speed}}m/s </td>
+					</tr>
+					<tr>
+						<th> {{f.list["7"].dt_txt}}</th>
+						<td> {{f.list["7"].main.temp}}°C </td>
+						<th> Weather </th>
+						<td> {{f.list["7"].weather["0"].description}} </td>
+						<th> Wind Speed :</th>
+						<td> {{f.list["7"].wind.speed}}m/s </td>
+					</tr>
+				</table>
+				<br>
+					</div>
+				</div>
+			
+		</div>
 	</div>
 </div>

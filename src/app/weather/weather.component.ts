@@ -7,7 +7,7 @@ import { WeatherService } from '../weather.service';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
-
+	 
 	location = 
 	[
 		{
@@ -32,20 +32,45 @@ export class WeatherComponent implements OnInit {
 		},
 	];
 
-	weather: any;
-	
+	weather: any = [];
+	forecast: any = [];
+	isShown: boolean = true ;
+
   constructor( private weatherService: WeatherService ) 
-  { }
+  { 
+  	this.getForecast();
+  	this.isshown();
+  }
+  
+  	getForecast()
+  	{
+  	Array.prototype.forEach.call(this.location, child => {
+  	child.city;
+
+  	return this.weatherService.getForecast( child.city, child.code).subscribe((response)=>{
+  	console.log(response);
+  	this.forecast.push(response);
+  	});
+  	});
+}
+	isshown()
+  	{
+  	 return this.isShown = !this.isShown;
+  	}
+
 
   ngOnInit() 
   {
   	Array.prototype.forEach.call(this.location, child => {
-  	console.log(child.city);
-});
-  	this.weatherService.getWeather( this.location[0].city, this.location[0].code).subscribe((response)=>{
-  	console.log(response);
-  	this.weather=response;
+  	child.city;
+
+  	this.weatherService.getWeather( child.city, child.code).subscribe((response)=>{
+  	response;
+  	this.weather.push(response);
   	});
   
-	
+ 
+});
 }}
+
+
